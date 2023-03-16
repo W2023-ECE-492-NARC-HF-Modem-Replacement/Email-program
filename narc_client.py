@@ -1,6 +1,6 @@
 import socket
 import sys
-
+from getpass import getpass
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -15,11 +15,13 @@ client_socket.connect((host, port))
 
 
 from_email = input("From: ")
+pw = getpass('\nEnter your password for the account\n')
 to_email = input("To: ")
 subject = input("Subject: ")
 body = input("Body: \n")
 
-message = {"From": from_email, "To": to_email, "Subject": subject, "Body": body}
+
+message = {"From": from_email, "To": to_email, "Subject": subject, "Body": body, "pass": pw}
 
 str_message = str(message)
 
